@@ -1,9 +1,6 @@
 //Types
 import { DebugLevel } from "../@types/enums";
 
-//Imports
-import fs from 'fs';
-
 /**
  * This is the Debugger class, it is responsible for logging output
  */
@@ -14,8 +11,7 @@ export default class Debugger {
     public static log(level: DebugLevel, title: string, string?: any) {
         if (level >= this.level) {
             if (this.log_file) {
-                title = '['+new Date().toLocaleString()+'] '+title;
-                fs.appendFileSync(this.log_file, title+" "+JSON.stringify(string,null,4)+"\n");
+                throw new Error();
             } else {
                 switch(level) {
                 case DebugLevel.debug: 
